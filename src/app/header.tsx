@@ -1,14 +1,24 @@
+'use client';
+
 import Link from "next/link";
 import Image from "next/image";
 import searchicon from "../../public/header/search.svg";
 import NextImage from "./../../Components/imagemaker";
+import HeaderDrawer from "./headerdrawer";
+import { useState } from "react";
 
 export default function Header() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
+  const openDrawer = () => setIsDrawerOpen(true);
+  const closeDrawer = () => setIsDrawerOpen(false);
+
   return (
     <header className="flex flex-col border">
       <article className="flex justify-between bg-white   items-center px-8 lg:px-18  py-6 ">
-        <div className="flex gap-2">
-          <button className="border flex lg:hidden p-2 rounded-lg bg-gray-200">
+        <div className="flex gap-6">
+            {/* burgermenu */}
+          <button onClick={openDrawer} className="border flex lg:hidden p-2 rounded-lg bg-gray-200">
             <NextImage
               url="/header/menu.png"
               width={24}
@@ -16,27 +26,26 @@ export default function Header() {
               alt="search"
             />
           </button>
-          <nav className="flex items-center gap-10 ">
-            {/* burgermenu */}
-            <span className="text-2xl font-bold text-green-600">گیاه لند</span>
-            <span className="text-lg text-green-600">
+            <span className="mr-3 relative  text-2xl font-bold text-green-600">گیاه لند</span>
+          <nav className=" items-center lg:flex hidden gap-10 ">
+            <span className="text-lg font-semibold  text-green-600">
               صحفه ی اصلی
-              <Link rel="stylesheet" href="" />
+              <Link rel="stylesheet" href="/" />
             </span>
-            <span className="text-lg text-black">
+            <span className="text-lg font-semibold text-black">
               گیاه پزشک
               <Link rel="stylesheet" href="" />
             </span>
-            <span className="text-lg text-black">
+            <span className="text-lg  font-semibold text-black">
               وبلاگ <Link rel="stylesheet" href="" />
             </span>
-            <span className="text-lg text-black">
+            <span className="text-lg  font-semibold text-black">
               درباره ما <Link rel="stylesheet" href="" />
             </span>
           </nav>
             </div>
-       <div>
-
+       <div className="flex gap-3">
+        {/* sign in menu and search icon */}
           <button className="border hidden lg:inline p-2 rounded-lg border-green-700">
             <NextImage
               url="/header/search.svg"
@@ -53,7 +62,9 @@ export default function Header() {
               alt="search"
               />
           </button>
+          
           <button className="border py-1 px-3 text-nowrap rounded-lg flex text-green-700 font-semibold items-center gap-1.5 border-green-700">
+          <Link href="/SignIn"></Link>
             <NextImage
               url="/header/login.svg"
               width={20}
@@ -75,6 +86,9 @@ export default function Header() {
           />
         </div>
       </div>
+
+      {/* Drawer */}
+      <HeaderDrawer isOpen={isDrawerOpen} onClose={closeDrawer} />
     </header>
   );
 }
