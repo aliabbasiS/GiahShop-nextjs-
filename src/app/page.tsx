@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 import Mobile from "./main/mobile";
 
 // Custom hook for animated counter
-function useAnimatedCounter(targetNumber: number, duration: number ) {
+function useAnimatedCounter(targetNumber: number, duration: number) {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -112,8 +112,12 @@ export default function Home() {
     //   </div>
     // </main>
     <>
-    <Desktop/>
-    <Mobile/>
+      
+        <Desktop />
+     
+    
+        <Mobile />
+    
     </>
   );
 }

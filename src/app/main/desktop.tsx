@@ -1,5 +1,12 @@
 import NextImage from "../../../Components/imagemaker";
 import { useEffect, useState } from "react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "../../../Components/"
 function useAnimatedCounter(targetNumber: number, duration: number = 2000) {
   const [count, setCount] = useState(0);
 
@@ -25,15 +32,16 @@ const Desktop = () => {
   const customersCount = useAnimatedCounter(234, 5000);
   const ordersCount = useAnimatedCounter(128, 6000);
   return (
-    <main className="bg-white flex px-8 lg:px-18  flex-col  pt-14   h-full">
+    <main className="bg-white px-8 lg:px-28  flex-col  pt-14 lg:flex hidden my-10  h-full">
       {/* desktop verion */}
-      <div className=" justify-between w-full gap-5 flex-row-reverse lg:flex hidden">
+      <div className=" justify-between w-full gap-5 flex-row-reverse lg:flex hidden " >
         <div className="w-full h-full flex  justify-end xl:justify-center items-center flex-1/2">
           <img
             src="/main/bigmain.png"
-            className="aspect-auto   lg:h-[558px] lg:w-[574px] xl:h-[700px] xl:w-[800px]  "
+            className="aspect-auto hidden lg:flex  lg:h-[558px] lg:w-[574px] xl:h-[700px] xl:w-[800px]  "
             alt=""
           />
+          
         </div>
         <aside className="flex order-1 flex-1/2  flex-col gap-8 ">
           <div className="flex ">
@@ -98,7 +106,7 @@ const Desktop = () => {
         </aside>
       </div>
       {/* payment at house */}
-      <div className="flex justify-between my-10">
+      <div className="lg:flex-row flex-col flex  justify-between my-10 gap-5 ">
         <div className="flex flex-col justify-center items-center gap-5 ">
           <div style={{background:'#E5F2E9'}} className="w-[80px] rounded-full h-[80px] flex justify-center items-center ">
             <NextImage url="/main/credit_card.png" width={40} height={40} />
@@ -108,10 +116,10 @@ const Desktop = () => {
         </div>
         <div className="flex flex-col justify-center items-center gap-5 ">
           <div style={{background:'#E5F2E9'}} className="w-[80px] rounded-full h-[80px] flex justify-center items-center ">
-            <NextImage url="/main/credit_card.png" width={40} height={40} />
+            <NextImage url="/main/validation.png" width={40} height={40} />
           </div>
-            <h2 className="font-semibold text-2xl"></h2>
-            <span className=" flex text-center font-semibold text-gray-400"> برای ایجاد اطمینان خاطر مشتریان،علاوه بر پرداخت آنلاین امکان پرداخت درب منزل وجود دارد</span>
+            <h2 className="font-semibold text-2xl">ضمانت محصول</h2>
+            <span className=" flex text-center font-semibold text-gray-400">به مدت دو هفته پس از دریافت محصول در صورت وجود مشکل میتوانید مرجوع کنید</span>
         </div>
         <div className="flex flex-col justify-center items-center gap-5 ">
           <div style={{background:'#E5F2E9'}} className="w-[80px] rounded-full h-[80px] flex justify-center items-center ">
@@ -121,6 +129,30 @@ const Desktop = () => {
             <span className=" flex text-center font-semibold text-gray-400"> با ایجاد آدرس منزل خود در پروفایل کاربری،محصول خود را درب منزل تحویل بگیرید  </span>
         </div>
       </div>
+      <div className="w-full flex lg:flex-row flex-col justify-center gap-6 my-10">
+        <NextImage url="/main/leaf1.png" height={240} classes="w-full lg:w-1/2"/ >
+        <NextImage url="/main/leaf2.png" height={240} classes="w-full lg:w-1/2"/ >
+
+
+      </div>
+      {/* giah apartemani */}
+      <div className="flex flex-col gap-7">
+
+      <h3 className="font-bold text-xl my-9 text-green-800">
+        گیاهان اپارتمانی
+      </h3>
+      <div>
+      <Carousel>
+  <CarouselContent className="-ml-4">
+    <CarouselItem className="pl-4">...</CarouselItem>
+    <CarouselItem className="pl-4">...</CarouselItem>
+    <CarouselItem className="pl-4">...</CarouselItem>
+  </CarouselContent>
+</Carousel>
+
+      </div>
+      </div>
+
     </main>
   );
 };

@@ -1,33 +1,32 @@
 import { useEffect, useState } from "react";
 import NextImage from "../../../Components/imagemaker";
+import asd from "../../../public/main/leaf1.png";
 function useAnimatedCounter(targetNumber: number, duration: number = 2000) {
-	const [count, setCount] = useState(0);
-  
-	useEffect(() => {
-	  const startTime = performance.now();
-  
-	  const update = (now: number) => {
-		const progress = Math.min((now - startTime) / duration, 1);
-		setCount(Math.floor(progress * targetNumber));
-		if (progress < 1) {
-		  requestAnimationFrame(update);
-		}
-	  };
-  
-	  requestAnimationFrame(update);
-	}, [targetNumber, duration]);
-  
-	return count;
-  }
-  
+  const [count, setCount] = useState(0);
 
-	
-  const Mobile = () => {
+  useEffect(() => {
+    const startTime = performance.now();
+
+    const update = (now: number) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      setCount(Math.floor(progress * targetNumber));
+      if (progress < 1) {
+        requestAnimationFrame(update);
+      }
+    };
+
+    requestAnimationFrame(update);
+  }, [targetNumber, duration]);
+
+  return count;
+}
+
+const Mobile = () => {
   const plantsCount = useAnimatedCounter(943, 1800);
   const customersCount = useAnimatedCounter(234, 5000);
   const ordersCount = useAnimatedCounter(128, 6000);
   return (
-    <main className="flex-col px-8 lg:hidden flex">
+    <main className="flex-col px-8 my-10 lg:hidden flex">
       {/* mainphoto with starts */}
       <div className="flex flex-col">
         {/* picture */}
@@ -74,6 +73,7 @@ function useAnimatedCounter(targetNumber: number, duration: number = 2000) {
           کن.علاوه بر اینها میتونی به صورت رایگان از گیاه پزشک سایت مشاوره
           بگیری.
         </article>
+        {/* two buttons */}
         <div className="h-[56px] lg:w-[539px] flex w-full gap-3">
           <button className="h-full w-1/2 lg:w-[258px] text-white bg-green-700 rounded-lg">
             گیاهان تخفیف دار
@@ -84,40 +84,94 @@ function useAnimatedCounter(targetNumber: number, duration: number = 2000) {
               <NextImage width={16} height={16} url="/header/Vector.svg" />
             </div>
           </button>
-
         </div>
       </div>
+      {/* Plants Counter */}
       <div className="flex w-full  gap-6  justify-between ">
-            {/* Plants Counter */}
-            <div className="flex items-center gap-4">
-              <div className="flex flex-col gap-1">
-                <span className="text-4xl font-semibold text-green-900">
-                  {plantsCount}+
-                </span>
-                <span className="text-lg text-gray-700 font-semibold">گیاه خانگی</span>
-              </div>
-            </div>
-
-            {/* Customers Counter */}
-            <div className="flex items-center gap-4">
-              <div className="flex flex-col gap-1">
-                <span className="text-4xl font-semibold text-green-900">
-                  {customersCount}+
-                </span>
-                <span className="text-lg text-gray-700 font-semibold">گیاه تزيینی</span>
-              </div>
-            </div>
-
-            {/* Orders Counter */}
-            <div className="flex items-center gap-4">
-              <div className="flex flex-col gap-1">
-                <span className="text-4xl font-semibold text-green-900">
-                  {ordersCount}+
-                </span>
-                <span className="text-lg text-gray-700 font-semibold">گیاه کادویی</span>
-              </div>
-            </div>
+        <div className="flex items-center gap-4">
+          <div className="flex flex-col gap-1">
+            <span className="text-4xl font-semibold text-green-900">
+              {plantsCount}+
+            </span>
+            <span className="text-lg text-gray-700 font-semibold">
+              گیاه خانگی
+            </span>
           </div>
+        </div>
+
+        {/* Customers Counter */}
+        <div className="flex items-center gap-4">
+          <div className="flex flex-col gap-1">
+            <span className="text-4xl font-semibold text-green-900">
+              {customersCount}+
+            </span>
+            <span className="text-lg text-gray-700 font-semibold">
+              گیاه تزيینی
+            </span>
+          </div>
+        </div>
+
+        {/* Orders Counter */}
+        <div className="flex items-center gap-4">
+          <div className="flex flex-col gap-1">
+            <span className="text-4xl font-semibold text-green-900">
+              {ordersCount}+
+            </span>
+            <span className="text-lg text-gray-700 font-semibold">
+              گیاه کادویی
+            </span>
+          </div>
+        </div>
+      </div>
+      {/* payment at your house */}
+      <div className="lg:flex-row  flex-col flex  justify-between my-20 gap-10 ">
+        <div className="flex flex-col justify-center items-center gap-5 ">
+          <div
+            style={{ background: "#E5F2E9" }}
+            className="w-[80px] rounded-full h-[80px] flex justify-center items-center "
+          >
+            <NextImage url="/main/credit_card.png" width={40} height={40} />
+          </div>
+          <h2 className="font-semibold text-2xl">پرداخت درب منزل</h2>
+          <span className=" flex text-center font-semibold text-gray-400">
+            {" "}
+            برای ایجاد اطمینان خاطر مشتریان،علاوه بر پرداخت آنلاین امکان پرداخت
+            درب منزل وجود دارد
+          </span>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-5 ">
+          <div
+            style={{ background: "#E5F2E9" }}
+            className="w-[80px] rounded-full h-[80px] flex justify-center items-center "
+          >
+            <NextImage url="/main/validation.png" width={40} height={40} />
+          </div>
+          <h2 className="font-semibold text-2xl">ضمانت محصول</h2>
+          <span className=" flex text-center font-semibold text-gray-400">
+            به مدت دو هفته پس از دریافت محصول در صورت وجود مشکل میتوانید مرجوع
+            کنید
+          </span>
+        </div>
+        <div className="flex flex-col justify-center items-center gap-5 ">
+          <div
+            style={{ background: "#E5F2E9" }}
+            className="w-[80px] rounded-full h-[80px] flex justify-center items-center "
+          >
+            <NextImage url="/main/local_shipping.png" width={40} height={40} />
+          </div>
+          <h2 className="font-semibold text-2xl">تحویل درب</h2>
+          <span className=" flex text-center font-semibold text-gray-400">
+            {" "}
+            با ایجاد آدرس منزل خود در پروفایل کاربری،محصول خود را درب منزل تحویل
+            بگیرید{" "}
+          </span>
+        </div>
+      </div>
+      {/* two planets leafs */}
+      <div className="w-full flex flex-wrap justify-center gap-6 ">
+        <NextImage url="/main/leaf1.png" height={240} classes="w-full" />
+        <NextImage url="/main/leaf2.png" height={240} classes="w-full" />
+      </div>
     </main>
   );
 };
