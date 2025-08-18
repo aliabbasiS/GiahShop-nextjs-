@@ -1,12 +1,17 @@
+"use client";
 import NextImage from "../../../Components/imagemaker";
 import { useEffect, useState } from "react";
+
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "../../../Components/"
+  type CarouselApi,
+} from "@/components/ui/carousel";
+import CarouselShopingcart from "./Carousele";
+
 function useAnimatedCounter(targetNumber: number, duration: number = 2000) {
   const [count, setCount] = useState(0);
 
@@ -31,6 +36,23 @@ const Desktop = () => {
   const plantsCount = useAnimatedCounter(943, 1800);
   const customersCount = useAnimatedCounter(234, 5000);
   const ordersCount = useAnimatedCounter(128, 6000);
+  const [api, setApi] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(0);
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCount(api.scrollSnapList().length);
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
+
   return (
     <main className="bg-white px-8 lg:px-28  flex-col  pt-14 lg:flex hidden my-10  h-full">
       {/* desktop verion */}
@@ -137,22 +159,18 @@ const Desktop = () => {
       </div>
       {/* giah apartemani */}
       <div className="flex flex-col gap-7">
+        <h3 className="font-bold text-xl my-9 text-green-800">
+          گیاهان اپارتمانی
+        </h3>
+        
+        {/* Carousel Container */}
+        <div  className="p-8">
+        <CarouselShopingcart/>
+       
 
-      <h3 className="font-bold text-xl my-9 text-green-800">
-        گیاهان اپارتمانی
-      </h3>
-      <div>
-      <Carousel>
-  <CarouselContent className="-ml-4">
-    <CarouselItem className="pl-4">...</CarouselItem>
-    <CarouselItem className="pl-4">...</CarouselItem>
-    <CarouselItem className="pl-4">...</CarouselItem>
-  </CarouselContent>
-</Carousel>
-
+          
+        </div>
       </div>
-      </div>
-
     </main>
   );
 };

@@ -14,6 +14,9 @@
     "@emotion/styled": "^11.14.1",
     "@mui/material": "^7.3.1",
     "@mui/material-nextjs": "^7.3.0",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@splidejs/react-splide": "^0.7.12",
+    "@splidejs/splide": "^4.1.4",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "embla-carousel-react": "^8.6.0",
@@ -21,7 +24,8 @@
     "next": "15.4.5",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "tailwind-merge": "^3.3.1"
+    "tailwind-merge": "^3.3.1",
+    "zustand": "^5.0.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",

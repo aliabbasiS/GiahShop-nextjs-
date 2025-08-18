@@ -1,6 +1,6 @@
+"use client";
 import { useEffect, useState } from "react";
 import NextImage from "../../../Components/imagemaker";
-import asd from "../../../public/main/leaf1.png";
 function useAnimatedCounter(targetNumber: number, duration: number = 2000) {
   const [count, setCount] = useState(0);
 
@@ -35,10 +35,10 @@ const Mobile = () => {
             {/* stars */}
             <div className="flex py-10  justify-start items-start">
               <div className="py-6">
-                <NextImage url="/mainphone/starbig.svg" width={30} />
+                <NextImage url="/mainphone/Starbig.svg" width={30} />
               </div>
               <div>
-                <NextImage url="/mainphone/starbig.svg" width={20} />
+                <NextImage url="/mainphone/Starlittle.svg" width={20} />
               </div>
             </div>
             {/* main image */}
@@ -50,10 +50,10 @@ const Mobile = () => {
             {/* stars */}
             <div className="flex py-10 flex-row-reverse justify-end items-end">
               <div className="py-6">
-                <NextImage url="/mainphone/starbig.svg" width={30} />
+                <NextImage url="/mainphone/Starbig.svg" width={30} />
               </div>
               <div>
-                <NextImage url="/mainphone/starbig.svg" width={20} />
+                <NextImage url="/mainphone/Starlittle.svg" width={20} />
               </div>
             </div>
           </div>
