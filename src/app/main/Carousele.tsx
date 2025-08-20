@@ -1,59 +1,69 @@
-"use client"
-import * as React from "react"
-import NextImage from "../../../Components/imagemaker"
+"use client";
+import * as React from "react";
+
+import useShoppingStore, { Flower } from "../store";
+
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/components/ui/carousel"
-import useShoppingStore, { Flower } from "../store"
+} from "@/components/ui/carousel";
+import NextImage from "../../../Components/imagemaker";
+
+function engToFarsiNumber(str: string): string {
+  const persianDigits: string[] = [
+    "۰",
+    "۱",
+    "۲",
+    "۳",
+    "۴",
+    "۵",
+    "۶",
+    "۷",
+    "۸",
+    "۹",
+  ];
+  return str.replace(/\d/g, (d: string) => persianDigits[parseInt(d)]);
+}
 
 export default function CarouselShopingcart() {
-  const products = useShoppingStore((state) => state.products)
-  const addToCart = useShoppingStore((state) => state.addToCart)
-  const getCart = useShoppingStore((state) => state.getCart)
+  const products = useShoppingStore((state) => state.products);
+  const addToCart = useShoppingStore((state) => state.addToCart);
+  const getCart = useShoppingStore((state) => state.getCart);
 
   const ProductCard = ({ product }: { product: Flower }) => (
-    <div className="overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-md">
-      <div className="relative aspect-square">
+    <div className="overflow-hidden rounded-lg border bg-white shadow-sm gap-6 transition-all hover:shadow-md flex flex-col">
+      <div className="relative grow items-center justify-center md:p-3  lg:p-6 rounded-lg w-full flex h-full">
         <NextImage
           url={product.image}
           alt={product.name}
-          classes="object-cover w-full h-full"
+          classes="rounded-lg grow object-contain"
         />
       </div>
-      <div className="p-4">
+      <div className="p-4 flex flex-col gap-3.5">
         <h4 className="mb-2 text-lg font-semibold text-gray-900">
           {product.name}
         </h4>
-        <p className="mb-3 text-sm text-gray-600">{product.description}</p>
-        <div className="flex items-center justify-between gap-2">
+        {/* <p className="mb-3 text-sm text-gray-600">{product.description}</p> */}
+        <div className="flex items-center justify-between  gap-6">
           <span className="text-lg font-bold text-green-600">
-            {product.price}
+            {engToFarsiNumber(`${product.price},000`)} تومان
           </span>
-          <button
-            type="button"
-            onClick={() => {
-              const cart = getCart()
-              console.log("Cart:", cart)
-            }}
-            className="rounded-lg bg-blue-600 px-3 py-2 text-sm text-white hover:bg-blue-700 transition"
-          >
-            Show Cart
-          </button>
-          <button
-            type="button"
-            onClick={() => addToCart(product)}
-            className="rounded-lg bg-green-600 px-3 py-2 text-sm text-white hover:bg-green-700 transition"
-          >
-            افزودن به سبد
-          </button>
+          <div className="flex gap-3 items-center">
+            <button
+              type="button"
+              onClick={() => addToCart(product)}
+              className="rounded-lg bg-green-600 px-3 py-2 text-sm text-white hover:bg-green-700 transition"
+            >
+              افزودن به سبد
+            </button>
+          </div>
         </div>
       </div>
     </div>
-  )
+  );
 
   return (
     <>
@@ -89,7 +99,7 @@ export default function CarouselShopingcart() {
           className="w-full"
           opts={{
             align: "start",
-            direction: "rtl",
+            direction: "ltr",
             containScroll: "trimSnaps",
             loop: true,
           }}
@@ -101,10 +111,10 @@ export default function CarouselShopingcart() {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious />
           <CarouselNext />
+          <CarouselPrevious />
         </Carousel>
       </div>
     </>
-  )
+  );
 }
