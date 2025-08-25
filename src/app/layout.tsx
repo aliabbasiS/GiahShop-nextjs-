@@ -11,7 +11,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" dir="rtl"  >
+    <html lang="en" dir="rtl"   >
       <head>
         <title>GiahLand</title>
         <meta
@@ -21,7 +21,7 @@ export default function RootLayout({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/header/pngtree-flower-pot-and-plant-logo-growth-vector-logo-png-image_5177004-removebg-preview.png" />
       </head>
-      <body className="w-full h-full bg-white">
+      <body className=" h-full bg-white">
     
            
         <Header />

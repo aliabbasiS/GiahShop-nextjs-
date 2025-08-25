@@ -1,6 +1,10 @@
 "use client";
 import { useEffect, useState } from "react";
 import NextImage from "../../../Components/imagemaker";
+import CarouselShopingcart from "./components/Carousele";
+import Gerdiantshopcart from "./components/geradiantcart";
+import Medicalservices from "./components/medicalservices";
+import { coursel1, imagesData1 } from "./desktop";
 function useAnimatedCounter(targetNumber: number, duration: number = 2000) {
   const [count, setCount] = useState(0);
 
@@ -172,6 +176,13 @@ const Mobile = () => {
         <NextImage url="/main/leaf1.png" height={240} classes="w-full" />
         <NextImage url="/main/leaf2.png" height={240} classes="w-full" />
       </div>
+      <div className="my-9">
+
+      <CarouselShopingcart products={coursel1}/>
+   
+      </div>
+      <Gerdiantshopcart images={imagesData1} />
+      <Medicalservices />
     </main>
   );
 };
