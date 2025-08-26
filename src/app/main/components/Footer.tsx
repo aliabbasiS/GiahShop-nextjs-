@@ -1,11 +1,11 @@
 "use client";
 import React from "react";
-import { engToFarsiNumber } from "./main/components/Carousele";
-import NextImage from './../../Components/imagemaker';
-import instagram from '../../public/Footersvg/instagram.svg'
-import linkdin from '../../public/Footersvg/linkdin.svg'
-import namad from '../../public/Footersvg/namad.svg'
-import  telegram from '../../public/Footersvg/telegram.svg'
+import { engToFarsiNumber } from "./Carousele";
+import NextImage from '../../../../Components/imagemaker';
+import instagram from '../../../../public/Footersvg/instagram.svg'
+import linkdin from '../../../../public/Footersvg/linkdin.svg'
+import namad from '../../../../public/Footersvg/namad.svg'
+import  telegram from '../../../../public/Footersvg/telegram.svg'
 
 
  const Footer: React.FC = () => {

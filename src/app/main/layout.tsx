@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-
+import "./globals.css";
+import Header from "./components/header";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
-
+import Footer from "../main/components/Footer";
 
 export default function RootLayout({
   children,
@@ -24,9 +25,9 @@ export default function RootLayout({
         />
       </head>
       <body className=" h-full bg-white">
-    
+        <Header />
         {children}
- 
+        <Footer />
       </body>
     </html>
   );

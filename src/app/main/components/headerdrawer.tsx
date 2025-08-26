@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import Link from "next/link";
-import NextImage from "../../Components/imagemaker";
+import NextImage from "../../../../Components/imagemaker";
 
 interface HeaderDrawerProps {
   isOpen: boolean;

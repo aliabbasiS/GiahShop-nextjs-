@@ -3,7 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import searchicon from "../../public/header/search.svg";
-import NextImage from "./../../Components/imagemaker";
+import NextImage from "../../../../Components/imagemaker";
 import HeaderDrawer from "./headerdrawer";
 import { useState } from "react";
 
@@ -30,18 +30,21 @@ export default function Header() {
           <nav className=" items-center lg:flex hidden gap-10 ">
             <span className="text-lg font-semibold  text-green-600">
               صحفه ی اصلی
-              <Link rel="stylesheet" href="/" />
+              <Link rel="stylesheet" href="/main" />
             </span>
             <span className="text-lg font-semibold text-black">
               گیاه پزشک
-              <Link rel="stylesheet" href="" />
+              <Link rel="stylesheet" href="/main/medical" />
             </span>
             <span className="text-lg  font-semibold text-black">
-              وبلاگ <Link rel="stylesheet" href="" />
+              وبلاگ <Link rel="stylesheet" href="/main/weblog" />
             </span>
+            <button className="cursor-pointer">
+
             <span className="text-lg  font-semibold text-black">
-              درباره ما <Link rel="stylesheet" href="" />
+              درباره ما <Link rel="stylesheet" href="/main/aboutus" />
             </span>
+            </button>
           </nav>
             </div>
        <div className="flex gap-3">
