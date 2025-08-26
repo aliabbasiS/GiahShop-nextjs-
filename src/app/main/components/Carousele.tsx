@@ -16,11 +16,10 @@ function engToFarsiNumber(str: string): string {
 }
 
 interface CarouselShopingcartProps {
-  products?: Flower[] // ⬅️ قابل پاس‌دادن از بیرون
+  products?: Flower[] 
 }
 
 export default function CarouselShopingcart({ products = [] }: CarouselShopingcartProps) {
-  // ⬅️ مقدار پیش‌فرض [] باعث میشه هیچوقت undefined نشه
 
   const ProductCard = ({ product }: { product: Flower }) => (
     <div className="overflow-hidden rounded-lg border my-10 bg-white shadow-sm gap-6 transition-all hover:shadow-md flex flex-col">

@@ -4,7 +4,7 @@ import NextImage from "../../../Components/imagemaker";
 import CarouselShopingcart from "./components/Carousele";
 import Gerdiantshopcart from "./components/geradiantcart";
 import Medicalservices from "./components/medicalservices";
-import { coursel1, imagesData1 } from "./desktop";
+import { coursel1, imagesData1 ,coursel2, imagesData2 } from "./desktop";
 function useAnimatedCounter(targetNumber: number, duration: number = 2000) {
   const [count, setCount] = useState(0);
 
@@ -181,8 +181,20 @@ const Mobile = () => {
       <CarouselShopingcart products={coursel1}/>
    
       </div>
+    
+      {/* shop cart */}
       <Gerdiantshopcart images={imagesData1} />
+      {/* medical services */}
       <Medicalservices />
+      <div className="flex flex-col gap-7 my-8">
+        <h3 className="font-bold text-xl my-9 text-nowrap text-green-800">
+          گیاهان تزيینی
+        </h3>
+
+        <CarouselShopingcart products={coursel2} />
+      </div>
+
+      <Gerdiantshopcart images={imagesData2} />
     </main>
   );
 };

@@ -35,13 +35,81 @@ export const coursel1 = [
     price: "535",
     image: "/shopescard/img2.png",
   },
-
-
-
 ];
-
-
-
+export const coursel2 = [
+  {
+    id: crypto.randomUUID(),
+    name: "گیاه طبیعی کراسولا",
+    description: "pachira",
+    price: "555",
+    image: "/New folder/crosela.png",
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "گیاه طبیعی یشم",
+    description: "pachira",
+    price: "250",
+    image: "/New folder/yashm.png",
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "گیاه طبیعی بونچیرا",
+    description: "pachira",
+    price: "560",
+    image: "/New folder/bonchira.png",
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "گیاه کراسولای حرفه ایی",
+    description: "pachira",
+    price: "535",
+    image: "/New folder/procrosel.png",
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "گیاه کراسولای حرفه ایی",
+    description: "pachira",
+    price: "535",
+    image: "/New folder/procrosel.png",
+  },
+];
+export const coursel3 = [
+  {
+    id: crypto.randomUUID(),
+    name: "گیاه طبیعی بنت قنسول گلیتال",
+    description: "pachira",
+    price: "176",
+    image: p1,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "گیاه طبیعی آنتوریوم",
+    description: "pachira",
+    price: "459",
+    image:p2,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "گیاه طبیعی بونسای پاچیرا",
+    description: "pachira",
+    price: "880",
+    image: p3,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "گیاه طبیعی آنتوریوم",
+    description: "pachira",
+    price: "498",
+    image:p4,
+  },
+  {
+    id: crypto.randomUUID(),
+    name: "گیاه طبیعی آنتوریوم",
+    description: "pachira",
+    price: "498",
+    image:p4,
+  },
+];
 
 
 
@@ -52,44 +120,33 @@ export const imagesData1 = [
   { url: petos.src, name: "پتوس" },
   { url: pachira.src, name: "سانسوریا" },
 
-
-
+  // add more here...
+];
+export const imagesData2 = [
+  { url: rozmari.src, name: "رزماری" },
+  { url: edniom.src, name: "آدنیوم" },
+  { url: ashitsom.src, name: "آشیانتوس" },
+  { url: annasi.src, name: "آناناسی" },
 
   // add more here...
 ];
 
-
-import pachira from '/public/geradiantpictures/pachira.png'
+import pachira from "/public/geradiantpictures/pachira.png";
 import bonsaye from "/public/geradiantpictures/bonsaye.png";
 import sansoriya from "/public/geradiantpictures/sansoriya.png";
-import petos from '/public/geradiantpictures/petos.png'
+import petos from "/public/geradiantpictures/petos.png";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import rozmari from "../../../public/geradiantpictures/rozmari.png";
+import edniom from "../../../public/geradiantpictures/ednium.png";
+import ashitsom from "../../../public/geradiantpictures/ashiyantos.png";
+import annasi from "../../../public/geradiantpictures/ananasi.png";
+import p1 from "../../../public/geradiantpictures/1.png";
+import p2 from "../../../public/geradiantpictures/2.png";
+import p3 from "../../../public/geradiantpictures/3.png";
+import p4 from "../../../public/geradiantpictures/4.png";
 
 import NextImage from "../../../Components/imagemaker";
 import { useEffect, useState } from "react";
-
-
-
-
-
 
 import {
   Carousel,
@@ -101,7 +158,7 @@ import {
 } from "@/components/ui/carousel";
 import CarouselShopingcart from "./components/Carousele";
 import Gerdiantshopcart from "./components/geradiantcart";
-import Medicalservices from './components/medicalservices';
+import Medicalservices from "./components/medicalservices";
 
 // ---- images data ----
 
@@ -278,7 +335,24 @@ const Desktop = () => {
 
       {/* shop cart */}
       <Gerdiantshopcart images={imagesData1} />
+      {/* medical services */}
       <Medicalservices />
+      <div className="flex flex-col gap-7 my-8">
+        <h3 className="font-bold text-xl my-9 text-nowrap text-green-800">
+          گیاهان تزيینی
+        </h3>
+
+        <CarouselShopingcart products={coursel2} />
+      </div>
+
+      <Gerdiantshopcart images={imagesData2} />
+      <div className="flex flex-col gap-7 my-8">
+        <h3 className="font-bold text-xl my-9 text-nowrap text-green-800">
+        گیاهان کادویی
+        </h3>
+
+        <CarouselShopingcart products={coursel3} />
+      </div>
     </main>
   );
 };
