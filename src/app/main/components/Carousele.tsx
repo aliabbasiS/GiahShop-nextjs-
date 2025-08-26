@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/carousel"
 import NextImage from "../../../../Components/imagemaker"
 
-function engToFarsiNumber(str: string): string {
+export function engToFarsiNumber(str: string): string {
   const persianDigits: string[] = ["۰","۱","۲","۳","۴","۵","۶","۷","۸","۹"]
   return str.replace(/\d/g, (d: string) => persianDigits[parseInt(d)])
 }
