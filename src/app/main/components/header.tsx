@@ -6,15 +6,18 @@ import searchicon from "../../public/header/search.svg";
 import NextImage from "../../../../Components/imagemaker";
 import HeaderDrawer from "./headerdrawer";
 import { useState } from "react";
+type HeaderProps = {
+  classes?: string
+}
 
-export default function Header() {
+export default function Header({ classes }: HeaderProps) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const openDrawer = () => setIsDrawerOpen(true);
   const closeDrawer = () => setIsDrawerOpen(false);
 
   return (
-    <header className="flex flex-col border">
+    <header className={`flex flex-col border ${classes ?? ""}`}>
       <article className="flex justify-between bg-white   items-center px-8 lg:px-18  py-6 ">
         <div className="flex gap-6">
             {/* burgermenu */}
@@ -28,22 +31,22 @@ export default function Header() {
           </button>
             <span className="mr-3 relative  text-2xl font-bold text-green-600">گیاه لند</span>
           <nav className=" items-center lg:flex hidden gap-10 ">
-            <span className="text-lg font-semibold  text-green-600">
+            <button className="text-lg font-semibold cursor-pointer  text-green-600">
               صحفه ی اصلی
               <Link rel="stylesheet" href="/main" />
-            </span>
-            <span className="text-lg font-semibold text-black">
+            </button>
+            <button className="text-lg font-semibold text-black">
               گیاه پزشک
               <Link rel="stylesheet" href="/main/medical" />
-            </span>
-            <span className="text-lg  font-semibold text-black">
+            </button>
+            <button className="text-lg  font-semibold text-black">
               وبلاگ <Link rel="stylesheet" href="/main/weblog" />
-            </span>
+            </button>
             <button className="cursor-pointer">
 
-            <span className="text-lg  font-semibold text-black">
+            <button className="text-lg  font-semibold text-black">
               درباره ما <Link rel="stylesheet" href="/main/aboutus" />
-            </span>
+            </button>
             </button>
           </nav>
             </div>
