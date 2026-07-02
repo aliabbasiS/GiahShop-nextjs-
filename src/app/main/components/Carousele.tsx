@@ -9,7 +9,7 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel"
 import NextImage from "../../../../Components/imagemaker"
-
+import { useRouter } from 'next/navigation'
 export function engToFarsiNumber(str: string): string {
   const persianDigits: string[] = ["۰","۱","۲","۳","۴","۵","۶","۷","۸","۹"]
   return str.replace(/\d/g, (d: string) => persianDigits[parseInt(d)])
@@ -20,9 +20,9 @@ interface CarouselShopingcartProps {
 }
 
 export default function CarouselShopingcart({ products = [] }: CarouselShopingcartProps) {
-
+  const router = useRouter()
   const ProductCard = ({ product }: { product: Flower }) => (
-    <div className="overflow-hidden rounded-lg border my-10 bg-white shadow-sm gap-6 transition-all hover:shadow-md flex flex-col">
+    <div onClick={() => router.push('/main/shop')} className="overflow-hidden rounded-lg border my-10 bg-white shadow-sm gap-6 transition-all hover:shadow-md flex flex-col">
       <div className="relative grow items-center justify-center md:p-3 lg:p-6 rounded-lg w-full flex h-full">
         <NextImage
           url={product.image}
